@@ -6,6 +6,12 @@ section .text
     global ft_atoi_base_utf32
 
 ft_atoi_base_utf32:
+    test rdi, rdi
+    jz .error
+
+    test rsi, rsi
+    jz .error
+
     push    r12
 
     mov     r8, rdi
@@ -93,5 +99,9 @@ ft_atoi_base_utf32:
     mov     rax, r12                ; met le résultat dans rax (valeur de retour)
     pop     r12                     ; restaure r12 (callee-saved)
     ret                             ; retourne
+
+.error:
+    xor rax, rax              ; met le résultat dans rax (valeur de retour)
+    ret     
 
 section .note.GNU-stack noalloc noexec nowrite progbits

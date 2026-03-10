@@ -6,6 +6,9 @@ ft_strcpy:
 	xor rax, rax
 	xor rcx, rcx
 
+	test rdi, rdi
+	jz .end
+
 	test rsi, rsi
 	jz .end
 

@@ -18,7 +18,9 @@ ft_strdup:
     mov     rdi, rax                ; rdi = dest
     pop     rsi                     ; rsi = src (str original)
     push    rdi                     ; sauvegarde dest avant ft_strcpy
+    sub rsp, 8
     call    ft_strcpy wrt ..plt
+    add rsp, 8
     pop     rax                     ; recupere dest = valeur de retour
     ret
 

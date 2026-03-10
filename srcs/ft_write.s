@@ -16,7 +16,9 @@ ft_write:
 .errno:
 	neg rax
 	push rax
+	sub rsp, 8
 	call __errno_location wrt ..plt
+	add rsp, 8
 	pop r10
 	mov [rax], r10
 	mov rax, -1
